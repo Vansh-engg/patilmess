@@ -1,34 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playball&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Exact Inspo.jpg Colors */
+  --inspo-green: #6c7e39;
+  --inspo-green-dark: #58692c;
+  --inspo-ochre: #e6a147;
+  --inspo-ochre-dark: #cc8629;
+  --inspo-blue: #4ba3e3;
+  --inspo-dark: #221813;
+  --inspo-bg: #faf7f2;
+  
+  /* Warm Culinary Palette */
+  --color-primary: #a82e11;
+  --color-primary-dark: #811e05;
+  --color-primary-light: #c84624;
+  --color-terracotta: #d9532f;
+  --color-amber: #e68a00;
+  --color-amber-light: #fef3e2;
+  --color-gold: #c98b2c;
+  --color-gold-light: #faf0dc;
+  --color-green: #1b7a42;
+  --color-green-light: #e8f5ec;
+  --color-green-dark: #12572e;
+  
+  /* Warm Parchment & Neutral Backgrounds */
+  --bg-main: #ffffff;
+  --bg-card: #ffffff;
+  --bg-warm: #fbf8f3;
+  --bg-elevated: #ffffff;
+  --bg-dark: #16110e;
+  --bg-dark-surface: #221a15;
+  
+  /* Text & Foreground */
+  --text-main: #231b17;
+  --text-muted: #6b5d54;
+  --text-light: #9c8e84;
+  --text-inverted: #fdfaf6;
+  
+  /* Accents & Borders */
+  --border-subtle: rgba(168, 46, 17, 0.12);
+  --border-gold: rgba(201, 139, 44, 0.35);
+  --shadow-sm: 0 2px 8px rgba(35, 27, 23, 0.05);
+  --shadow-md: 0 8px 24px rgba(35, 27, 23, 0.08);
+  --shadow-lg: 0 16px 40px rgba(35, 27, 23, 0.12);
+  --shadow-warm: 0 12px 36px rgba(168, 46, 17, 0.15);
+  
+  /* Fonts */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-brand: 'Rozha One', serif;
+  --font-script: 'Playball', 'Alex Brush', cursive;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+  
+  /* Transition */
+  --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.font-script {
+  font-family: var(--font-script);
 }
 
 * {
@@ -37,13 +71,258 @@ body {
   margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Texture Pattern Background for Authentic Indian Aesthetic */
+.bg-subtle-pattern {
+  background-color: var(--bg-main);
+  background-image: radial-gradient(rgba(168, 46, 17, 0.04) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+}
+
+.font-brand {
+  font-family: var(--font-brand);
+}
+
+.text-gradient-brass {
+  background: linear-gradient(135deg, #a82e11 0%, #c98b2c 60%, #e68a00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-green {
+  color: var(--color-green);
+}
+
+/* Badges & Pills */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge-saffron {
+  background: var(--color-amber-light);
+  color: #9c5400;
+  border: 1px solid rgba(230, 138, 0, 0.25);
+}
+
+.badge-green {
+  background: var(--color-green-light);
+  color: var(--color-green-dark);
+  border: 1px solid rgba(27, 122, 66, 0.25);
+}
+
+.badge-gold {
+  background: var(--color-gold-light);
+  color: #8c5a12;
+  border: 1px solid var(--border-gold);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(168, 46, 17, 0.25);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(168, 46, 17, 0.35);
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  background: linear-gradient(135deg, #2fe06f 0%, #169b8b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: var(--color-primary-dark);
+  border: 1.5px solid var(--color-gold);
+}
+
+.btn-outline-gold:hover {
+  background: var(--color-gold-light);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--text-main);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-warm);
+  border-color: var(--color-gold);
+}
+
+/* Card Styling */
+.premium-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(168, 46, 17, 0.25);
+  transform: translateY(-4px);
+}
+
+/* Glassmorphism */
+.glass-header {
+  background: rgba(251, 249, 245, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(168, 46, 17, 0.08);
+}
+
+/* Container */
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section Spacing */
+.section-pad {
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .section-pad {
+    padding: 50px 0;
   }
+}
+
+/* Pulsing Badge Indicator */
+.pulse-dot {
+  width: 9px;
+  height: 9px;
+  background-color: #25D366;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+}
+
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(37, 211, 102, 0.4);
+  animation: pulse-ring 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 46, 17, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 46, 17, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Focus States */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 2px;
 }
